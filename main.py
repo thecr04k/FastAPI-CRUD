@@ -2,6 +2,10 @@ from fastapi import FastAPI, HTTPException
 import uvicorn
 
 
+"""Importing Routes from Models"""
+from routes.first import router as first_router
+
+##
 app = FastAPI()
 
 
@@ -23,6 +27,9 @@ async def index():
         }
     }
 
+
+"""Registering Routers to the FastAPI App"""
+app.include_router(first_router, prefix="/first")
 
 
 if __name__ == "__main__":
